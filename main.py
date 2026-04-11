@@ -1,13 +1,13 @@
 import os
 import shutil
 import uuid
+from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 from pathlib import Path
 from typing import Dict
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, UploadFile
-from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from PyPDF2 import PdfReader
 from docx import Document
@@ -21,6 +21,13 @@ app = FastAPI(
     title="Document Question Answering API",
     description="Upload PDF or DOCX files, ask questions, and get Gemini answers based only on the document.",
     version="1.0.0",
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://astro-trace.lovable.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
