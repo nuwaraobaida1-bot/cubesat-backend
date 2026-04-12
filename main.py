@@ -22,13 +22,7 @@ app = FastAPI(
     description="Upload PDF or DOCX files, ask questions, and get Gemini answers based only on the document.",
     version="1.0.0",
 )
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://astro-trace.lovable.app"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 
 UPLOAD_DIR = Path("temp_uploads")
