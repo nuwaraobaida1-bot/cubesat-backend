@@ -11,8 +11,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel
 from PyPDF2 import PdfReader
 from docx import Document
-from google import genai
-from google.genai import types
+from groq import Groq
 
 
 load_dotenv()
